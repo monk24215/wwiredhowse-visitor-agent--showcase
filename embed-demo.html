@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agent Widget — Demo</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 60px auto; padding: 0 24px; color: #222; line-height: 1.6; }
+  h1 { margin-top: 0; }
+  pre { background: #f4f4f4; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 13px; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>Agent Widget — Demo</h1>
+<p>The chat launcher should appear in the bottom-right corner of this page.</p>
+
+<h2>Embed snippet</h2>
+<p>Drop these two scripts into the <code>&lt;body&gt;</code> of any HTML page. Replace <code>HOST</code> with where you deployed this folder.</p>
+
+<pre>&lt;script&gt;
+  window.AGENT = {
+    host: 'https://agent.example.com',
+    slug: 'resume',
+    title: 'Ask About Kristian',
+    accent: '#e8a020',
+    chips: ['Experience', 'Projects', 'Contact']
+  };
+&lt;/script&gt;
+&lt;script src="https://agent.example.com/widget.js" defer&gt;&lt;/script&gt;</pre>
+
+<h2>Configuration</h2>
+<ul>
+  <li><code>host</code> (required) — base URL where the agent folder lives, no trailing slash</li>
+  <li><code>slug</code> (required) — which agent to load (matches the slug in admin)</li>
+  <li><code>title</code> — header shown in the modal (defaults to "Assistant")</li>
+  <li><code>greeting</code> — first message shown when modal opens (overrides admin default)</li>
+  <li><code>accent</code> — any CSS color for the launcher and buttons</li>
+  <li><code>chips</code> — array of suggested-question buttons</li>
+</ul>
+
+<!-- ============================================ -->
+<!-- LIVE WIDGET                                   -->
+<!-- ============================================ -->
+<script>
+  window.AGENT = {
+    host: '.', // same-origin demo; in production use full URL
+    slug: 'resume',
+    title: 'Ask About Kristian',
+    accent: '#e8a020',
+    chips: ['Experience', 'Projects', 'AI work', 'Contact']
+  };
+</script>
+<script src="widget.js" defer></script>
+
+</body>
+</html>
